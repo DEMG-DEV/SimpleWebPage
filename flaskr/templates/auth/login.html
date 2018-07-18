@@ -5,11 +5,23 @@
 {% endblock %}
 
 {% block content %}
-<form method="post">
-    <label for="username">Username</label>
-    <input name="username" id="username" required>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
-    <input type="submit" value="Log In">
-</form>
+<div class="row justify-content-md-center">
+    <div class="col-lg-4">
+        <form method="post">
+            <fieldset>
+                <div class="form-group row">
+                    <label class="col-form-label" for="username">Username</label>
+                    <input type="text" class="form-control-plaintext" name="username" id="username" required>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label" for="password">Password</label>
+                    <input type="password" class="form-control-plaintext" name="password" id="password" required>
+                </div>
+                <div class="form-group row">
+                    <input class="btn btn-primary" type="submit" value="Log In">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
 {% endblock %}

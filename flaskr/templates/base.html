@@ -1,24 +1,41 @@
 <!doctype html>
 <title>{% block title %}{% endblock %} - Flaskr</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<nav>
-    <h1>Flaskr</h1>
-    <ul>
-        {% if g.user %}
-        <li><span>{{ g.user['username'] }}</span>
-        <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
-            {% else %}
-        <li><a href="{{ url_for('auth.register') }}">Register</a>
-        <li><a href="{{ url_for('auth.login') }}">Log In</a>
-            {% endif %}
-    </ul>
+<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url_for('index') }}">Flaskr</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}">Inicio</a></li>
+            </ul>
+            <ul class="navbar-nav ml-auto navbar-right">
+                {% if g.user %}
+                <li class="nav-item"><span class="nav-link">{{ g.user['username'] }}</span>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.logout') }}">Log Out</a>
+                    {% else %}
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.register') }}">Register</a>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.login') }}">Log In</a>
+                    {% endif %}
+            </ul>
+        </div>
+    </div>
 </nav>
-<section class="content">
-    <header>
-        {% block header %}{% endblock %}
-    </header>
-    {% for message in get_flashed_messages() %}
-    <div class="flash">{{ message }}</div>
-    {% endfor %}
-    {% block content %}{% endblock %}
-</section>
+<div class="container" style="margin-top: 10px">
+    <section class="content">
+        <div class="card border-primary mb-3">
+            <div class="card-header">{% block header %}{% endblock %}</div>
+            <div class="card-body">
+                {% for message in get_flashed_messages() %}
+                <h4 class="card-title"></h4>
+                <p class="card-text">{{ message }}</p>
+                {% endfor %}
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </section>
+</div>
