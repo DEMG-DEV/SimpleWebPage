@@ -1,6 +1,14 @@
 <!doctype html>
 <title>{% block title %}{% endblock %} - Flaskr</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css"
+      integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
+      crossorigin="anonymous">
+<script>
+    function getYear() {
+        return (new Date).getFullYear();
+    }
+</script>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
@@ -38,4 +46,27 @@
             </div>
         </div>
     </section>
+    <footer>
+        <div class="row">
+            <div class="col-lg-6 workshop-left text-muted">
+                <p>&copy;
+                    <strong>
+                        <script>
+                            var year = getYear();
+                            document.write(year);
+                        </script>
+                    </strong> - LSCA David Mendez Guardado
+                </p>
+            </div>
+            <div class="col-lg-6 workshop-right text-muted">
+                Powered By -
+                <a href="http://getbootstrap.com" target="_blank">
+                    <i class="fa fa-bold" aria-hidden="true"></i>&nbsp;Bootstrap</a> | Powered By -
+                <a href="https://www.python.org/" target="_blank">
+                    <i class="fab fa-python" aria-hidden="true"></i>&nbsp;Python</a> | Powered by
+                <a href="http://flask.pocoo.org/" target="_blank">
+                    <i class="fab fa-affiliatetheme" aria-hidden="true"></i>&nbsp;Flask</a>
+            </div>
+        </div>
+    </footer>
 </div>
